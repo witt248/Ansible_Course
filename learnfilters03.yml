@@ -1,0 +1,21 @@
+---
+- name: Jinja2 challenger
+  hosts: localhost
+  gather_facts: FALSE #overwrite default
+
+  vars:
+    letterList:  
+    - "A"
+    - "D"
+    - "C"
+    - "Z"
+    - "K"
+
+  tasks:
+    - name: show list
+      debug:
+        msg: "The List is: '{{ letterList }}'"
+
+    - name: sort list
+      debug:
+        msg: "The random letter is: '{{ letterList|random }}'"
