@@ -1,0 +1,15 @@
+---
+- name: push a script and remove a fil
+  hosts: localhost
+
+  tasks:
+    #Remove the starter file when script is run
+    - script: /home/student/mycode/pyhello02.py
+      args:
+        #executes only if file is present
+        executable: python3
+        removes: /home/student/mycode/starter.txt
+      register: results
+
+    - debug:
+        msg: "{{ results }}"
